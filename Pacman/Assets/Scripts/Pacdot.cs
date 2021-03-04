@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class Pacdot : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D co)
+    public GameObject levelMenage;
+    void OnTriggerEnter2D(Collider2D obj)
     {
-        if (co.name == "pacman")
-            Destroy(gameObject);
+        if (obj.CompareTag("Player"))
+        {
+            levelMenage.GetComponent<LevelMenage>().pontos++; 
+            Destroy(gameObject); 
+            GetComponent<AudioSource>().Play();
+        }
+       
+           
     }
+
+  
 }

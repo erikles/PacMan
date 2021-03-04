@@ -36,7 +36,7 @@ public class PacmanMove : MonoBehaviour
 
     bool valid(Vector2 dir)
     {
-        // Cast Line from 'next to Pac-Man' to 'Pac-Man'
+      
         Vector2 pos = transform.position;
         RaycastHit2D hit = Physics2D.Linecast(pos + dir, pos);
         return (hit.collider == GetComponent<Collider2D>());
