@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PacmanMove : MonoBehaviour
 {
+    public GameOverScreen GameOverScreen;
+    int maxPlatform = 0;
     public float speed = 0.4f;
     Vector2 dest = Vector2.zero;
 
@@ -40,5 +42,9 @@ public class PacmanMove : MonoBehaviour
         Vector2 pos = transform.position;
         RaycastHit2D hit = Physics2D.Linecast(pos + dir, pos);
         return (hit.collider == GetComponent<Collider2D>());
+    }
+
+    public void GameOver(){
+        GameOverScreen.Setup(maxPlatform);
     }
 }
